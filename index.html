@@ -24,22 +24,242 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
+				
+                <section>
                     <h3>Uno introducción a BDD</h3>
                     <h5>Behavior Driven Development</h5>
                 </section>
+
+
                 <section>
-                    <h3>Presentación</h3>
 
                     <section>
-                        Yo
-                    </section>
+                        <h4><code>whoami</code></h4>
 
-                    <section>
-                        Octopus Labs
+                            <p>Juan Ignacio Rodríguez de león<p>
+                            <p><code>@jileon</code> en Twitter<p>
+                            <p>Backend developer en 
+                            <a href="https://octopuslabs.com/">OctopusLabs</a><p>
+                            <p>
+                                <img border="0" style="padding:1em;"
+                                    src="./logos/logo-labs.svg"></p>
                     </section>
-                </section>
     
+                    <section>
+                        <h4><code>banner</code></h4>
+
+                        <h3>We are hiring</h3>
+
+                        <p>Más info es:</p>
+                        <p><code><a href="https://octopuslabs.com/careers">
+                                https://octopuslabs.com/careers
+                            </a></code></p>
+                        <aside class="notes">
+                            joke 3
+                        </section>
+
+                </section>
+
+
+				<section>
+                    <h4><code>tree</code></h4>
+                    <h5>Como se estructura esta charla</h5>
+                    <p>Se divide en tres partes:</p>
+                    <ul>
+                        <li class="fragment">Teoria</li>
+                        <li class="fragment">Ejemplo práctico</li>
+                        <li class="fragment">Librerías, herramientas,
+                            recomendaciones...</li>
+                    </ul>
+                        <aside class="notes">
+                           Para hacer la charla más amena, saltaremos
+                           de la parte teórica a la práctica y 
+                           vuelta.
+                        </section>
+                </section>
+
+            <section>
+
+                <section>
+                    <h5><code>man</code></h5>
+                    <h4>Qué es BDD</h4>
+                    <p>Según wikipedia:</p>
+                    <cite><small>
+                        ... an extension of TDD that makes use of a simple, 
+                        domain-specific scripting language structured like 
+                        natural language statements to ensures all development
+                        projects remain focused on delivering what the business
+                        actually needs while meeting all requirements.
+                            </small></cite>
+                    
+                </section>
+
+                <section>
+                    <h5><code>man</code></h5>
+                    <h4>Qué es BDD</h4>
+                    <p>Según wikipedia:</p>
+                    <cite><small><strike>
+                        ... an extension of TDD that makes use of a simple, 
+                        domain-specific scripting language structured like 
+                        natural language statements to ensures all development
+                        projects remain focused on delivering what the business
+                        actually needs while meeting all requirements.
+                            </strike></small></cite>
+                </section>
+
+                <section id="first-bdd">
+                    <h4>tldr</h4>
+                    <ul>
+                        <li>Son tests. Igual que con TDD, usamos test para
+                            dirigir <b class="fragment highlight-green">el
+                            diseño</b></li>
+                        <li>Suelen ser test de <b class="fragment highlight-green">
+                            más alto nivel</b> que TDD</li>
+                        </li>Están escritos en un <b class="fragment highlight-green">lenguaje
+                            natural</b> (Español,
+                        Inglés...)</li>
+                    </ul>
+                    <p class="fragment"><a href="#/example-bdd" target="_blank">Ejemplo</a></p>
+
+                </section>
+
+                <section id="after-first-dbb">
+                    <h4>Objetivo: Compartir conocimiento</h4>
+                    <p>El lenguaje natural:</p>
+                    <ul>
+                        <li>Lenguaje <b class="fragment highlight-green">común</b> entre todos</li>
+                        <li><b class="fragment highlight-green">Cualquiera</b>
+                            puede definir u opinar
+                            sobre un test</li>
+                        <li>Aclarar y <b class="fragment highlight-green">debatir
+                                sobre zonas típicamente
+                                conflictivas</b>: casos límite, excepciones...</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Especificaciones ejecutables</h4>
+                    <p>Si usamos estos tests como las especificaciones
+                    que debe cumplir nuestro software, tenemos especificaciones
+                    <b class="fragment highlight-green">
+                        escritas en lenguaje natural, pero ejecutables</b>.
+                </section>
+
+                <section>
+                    <h4>¿Cómo que ejecutables?</h4>
+                    <p>Vamos a convertir esta especificacion natural en un 
+                    test</p>
+                    <p class="fragment"><a href="#/install-behave" target="_blank">Ejemplo</a></p>
+
+                </section>
+
+                <section id="after-install-behave">
+                    <h3>Tenemos test</h3>
+                    <p>Pero claro, ahora hay que implementarlos, no hay magia</p>
+                    <p>Pero antes, veamos un poco más acerca de estos
+                    ficheros</p>
+                </section>
+
+                <section>
+                    <h4>Gherkin</h4>
+                </section>
+
+                <section>
+                    Estructura
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                    <h4>Parte práctica</h4>
+                </section>
+
+                <section id="example-bdd">
+                    <pre><code>
+    Feature: Transfer between accounts
+
+        Given I have 10.000€ in my current acount
+        And I have 300€ in my saving accout
+        When I transfer 200€ from current to saving
+        Then I should have 9.800€ in my current acount
+        And I should have 500€ in my saving acount
+                    </code></pre>
+
+                    <p><a href="#/after-first-bdd" target="_blank"> ◀ </a></p>
+
+                </section>
+
+                <section id="install-behave">
+                    <pre><code>
+    pip install behave
+                    </code></pre>
+
+                <p><small>Behave es una implementacion de herramienta BDD escrita
+                en Python, veremos otras opciones para otros lenguajes
+                al final de la charla</small></p>
+
+                </section>
+
+                <section id="create-feature-file">
+                    <h4>Nuestro primer test BDD</h4>
+
+                    <ul>
+                        
+                        <li>Creamos un directorio <code>features</code> y
+                    dentro creamos un fichero llamado
+                    <code>transfer-between-accounts.feature</code>
+                    con el contenido del ejemplo anterior</li>
+                    
+                        <li>Dentro de <code>features</code>, creamos 
+                            un directorio <code>steps</code>.</li>
+
+                    </ul>
+
+                </section>
+
+                <section>
+                    <pre><code>
+mkdir features
+mkdir features/steps
+vim features/transfer-between-accounts.feature
+                    </code> </pre>
+                </section>
+
+
+                <section>
+
+                    <h4>Ya hemos escrito el primer test, ya es ejecutable</h4>
+                   
+                    <p>Ejecutamos, simplemente:</p>
+
+                    <pre><code>
+    behave
+                    </code></pre>
+
+                </section>
+
+                <section>
+
+                    <pre><code>
+Feature: Transfer between accounts # features/transfer-between-accounts.feature:1
+  Given I have 10.000€ in my current acount
+  And I have 300€ in my saving accout
+  When I transfer 200€ from current to saving
+  Then I should have 9.800€ in my current acount
+  And I should have 500€ in my saving acount
+0 features passed, 0 failed, 1 skipped
+0 scenarios passed, 0 failed, 0 skipped
+0 steps passed, 0 failed, 0 skipped, 0 undefined
+                    </code></pre>
+
+                    <p><a href="#/after-install-behave" target="_blank"> ◀ </a></p>
+                </section>
+
+
+
+            </section>
+
 			</div>
 		</div>
 
@@ -51,6 +271,7 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+                history: true,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
@@ -58,6 +279,7 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+            Reveal.configure({ slideNumber: 'c/t' });
 		</script>
 	</body>
 </html>
