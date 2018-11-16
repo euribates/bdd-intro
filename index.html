@@ -107,7 +107,7 @@
                             </strike></small></cite>
                 </section>
 
-                <section id="first-bdd">
+                <section id="after_hello_bdd">
                     <h4>tldr</h4>
                     <ul>
                         <li>Son tests. Igual que con TDD, usamos test para
@@ -119,11 +119,11 @@
                             natural</b> (Español,
                         Inglés...)</li>
                     </ul>
-                    <p class="fragment"><a href="#/example-bdd" target="_blank">Ejemplo</a></p>
+                    <p><a href="#/hello_bdd">Ejemplo</a></p>
 
                 </section>
 
-                <section id="after-first-dbb">
+                <section>
                     <h4>Objetivo: Compartir conocimiento</h4>
                     <p>El lenguaje natural:</p>
                     <ul>
@@ -149,23 +149,145 @@
                     <h4>¿Cómo que ejecutables?</h4>
                     <p>Vamos a convertir esta especificacion natural en un 
                     test</p>
-                    <p class="fragment"><a href="#/install-behave" target="_blank">Ejemplo</a></p>
+                    <p><a href="#/install-behave">Ejemplo</a></p>
 
                 </section>
 
                 <section id="after-install-behave">
                     <h3>Tenemos test</h3>
-                    <p>Pero claro, ahora hay que implementarlos, no hay magia</p>
-                    <p>Pero antes, veamos un poco más acerca de estos
-                    ficheros</p>
+                    <ul>
+                    <li>Claro, ahora hay que implementarlos, no hay magia</li>
+
+                    <li>Pero antes, veamos un poco más acerca de estos
+                    ficheros y su organización</li>
+                    </ul>
+
                 </section>
 
                 <section>
                     <h4>Gherkin</h4>
+                   
+                    <p> El formato que usamos para las especificaciones se
+                    denomina <b>Gherkin</b>.  </p>
+                    
+                    <p>Hay una serie de palabras reservadas que tienen un
+                    significado especial: <code><b>Feature</b></code>,
+                    <code><b>Scenario</b></code>, <code><b>Given</b></code>,
+                    <code><b>When</b></code> y <code><b>Then</b></code>.</p>
+
+                    <p>(y <code><b>And</b></code>
+                    y <code><b>But</b></code>) </p>
+
                 </section>
 
                 <section>
-                    Estructura
+                    <h4>Feature</h4>
+
+                    <ul>
+                        
+                    <li>Cada <i>feature</i> o capacidad que nos de el sistema
+                        deberia tener su propio fichero
+                        <code>.feature</code>.</li>
+                    
+                    <li>La palabra clave Feature ira al pricincio y sirve para
+                        describir en una sola linea que parte del sistema
+                        estamos probando.</li>
+
+                    <li>Cualquier texto entre Feature y el primer escenario
+                        sirve para describirlo de forma mas completa.</li>
+                    
+                    </ul> </section>
+
+                <section>
+                    <h4>Scenario</h4>
+
+                    <ul>
+
+                        <li> Normalmente una funcionalidad del sistema tiene
+                            más de un escenario, porque nos interesa probar el
+                            sistema en diferentes condiciones, con diferentees
+                        entradas, etc...</li>   
+
+                        <li> Cada escenario se define con la palabra clave
+                            <b>Scenario</b></li>
+
+                        <li> Consiste en un ejemplo completo de uso de la
+                            feature </li>
+
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Given</h4>
+                    <ul>
+                        <li><b>Given</b> pone el sistema en un estado
+                            conocido y controlado antes de empezar a
+                            interactuar con él</li>
+                        <li>No debería haber interacciones de usuario aquí</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>When</h4>
+                    <ul>
+                        <li><b>When</b> Llevamos a cabo la accion que
+                            el usuario o un sistema externo quiere ejecutar.
+                            Esto deberá provocar algún cambio en el
+                            sistema</li>
+                        <li>O no</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Then</h4>
+                    <ul>
+                        <li><b>Then</b> Comprobamos que la salida sea
+                        la esperada</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Volvamos a la parte práctica</h4>
+                    <h5>Implementemos los test</h5>
+                        <p><a href="/#simple_test">Ejemplo</a></p>
+                </section>
+
+                <section id="after_simple_test">
+                    <h4>Alguna cosas interesantes<br>
+                    <small>de los steps</small></h4>
+
+                    <ul>
+                        <li>El nombre de la funcion a la hora de definir los
+                        steps o pasos <b>no</b> es importante</li>
+                        <li>Behave decide que funciones llamar y cuando
+                        en base al texto del decorador</li>
+                        <li>La idea es que los steps sean reutilizables</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Captura de parámetros</h4>
+                    <ul>
+                        <li>Para eso, una caracteristica importante
+                        es que podemos hacer los pasos parametrizables,
+                        y capturar del texto datos para el test.</li>
+                    </ul>
+                        <p><a href="/#param_test">Veámoslo con otro ejemplo</a></p>
+
+                </section>
+
+                <section>
+                    <h4>Diferencias con TDD</h4>
+                    <ul>
+                        <li>El enfasis no es en el código, sino en 
+                        la funcionalidad proporcionada</li>
+
+                        <li>Especificación en lenguajes natural</li>
+
+                        <li>Común a todo el equipo: Desarrolladores,
+                        testers, Q/A, product owners, analistas de
+                        negocio...</li>
+                    </ul>
                 </section>
 
             </section>
@@ -175,9 +297,15 @@
                     <h4>Parte práctica</h4>
                 </section>
 
-                <section id="example-bdd">
+                <section>
+                    <h4>Un ejemplo de fichero .feature</h4>
+                </section>
+
+                <section id="hello_bdd">
                     <pre><code>
     Feature: Transfer between accounts
+
+      Scenario: Add savings
 
         Given I have 10.000€ in my current acount
         And I have 300€ in my saving accout
@@ -186,35 +314,42 @@
         And I should have 500€ in my saving acount
                     </code></pre>
 
-                    <p><a href="#/after-first-bdd" target="_blank"> ◀ </a></p>
+                    <p><a href="#/after_hello_bdd"> ◀ </a></p>
 
                 </section>
 
                 <section id="install-behave">
-                    <pre><code>
-    pip install behave
-                    </code></pre>
+                    <h4>Instalemos behave</h4>
 
-                <p><small>Behave es una implementacion de herramienta BDD escrita
-                en Python, veremos otras opciones para otros lenguajes
-                al final de la charla</small></p>
+                    <p><small>Behave es una implementacion de herramienta BDD
+                        escrita en Python, veremos otras opciones para otros
+                        lenguajes al final de la charla</small></p>
 
                 </section>
 
-                <section id="create-feature-file">
-                    <h4>Nuestro primer test BDD</h4>
+                <section>
+                    <pre><code>
+    pip install behave
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>Para Nuestro primer test BDD
+                    <small>vamos a necesitar...</small></h4>
 
                     <ul>
                         
-                        <li>Creamos un directorio <code>features</code> y
-                    dentro creamos un fichero llamado
-                    <code>transfer-between-accounts.feature</code>
-                    con el contenido del ejemplo anterior</li>
+                        <li>Un directorio <code><b>features</b></code></li>
+                        
+                        <li>dentro, un fichero llamado
+                            <code><b>transfer-between-accounts.feature</b></code>*
+                            </li>
                     
-                        <li>Dentro de <code>features</code>, creamos 
-                            un directorio <code>steps</code>.</li>
-
+                            <li>y un directorio <code><b>steps</b></code>.</li>
+                           
                     </ul>
+                    <p><small>* con el contenido del ejemplo anterior</small></p>
+
 
                 </section>
 
@@ -229,7 +364,8 @@ vim features/transfer-between-accounts.feature
 
                 <section>
 
-                    <h4>Ya hemos escrito el primer test, ya es ejecutable</h4>
+                    <h4>Ya hemos escrito el primer test<br>
+                        <small>ya es ejecutable</small></h4>
                    
                     <p>Ejecutamos, simplemente:</p>
 
@@ -243,20 +379,168 @@ vim features/transfer-between-accounts.feature
 
                     <pre><code>
 Feature: Transfer between accounts # features/transfer-between-accounts.feature:1
-  Given I have 10.000€ in my current acount
-  And I have 300€ in my saving accout
-  When I transfer 200€ from current to saving
-  Then I should have 9.800€ in my current acount
-  And I should have 500€ in my saving acount
-0 features passed, 0 failed, 1 skipped
-0 scenarios passed, 0 failed, 0 skipped
-0 steps passed, 0 failed, 0 skipped, 0 undefined
+
+  Scenario: Add savings                           # features/transfer-between-accounts.feature:3
+    Given I have 10000€ in my current acount      # None
+    And I have 300€ in my saving accout           # None
+    When I transfer 200€ from current to saving   # None
+    Then I should have 9800€ in my current acount # None
+    And I should have 500€ in my saving acount    # None
+
+
+Failing scenarios:
+  features/transfer-between-accounts.feature:3  Add savings
+
+0 features passed, 1 failed, 0 skipped
+0 scenarios passed, 1 failed, 0 skipped
+0 steps passed, 0 failed, 0 skipped, 5 undefined
+Took 0m0.000s                             
                     </code></pre>
+                </section>
+
+                <section>
+                    <pre><code>
+
+You can implement step definitions for undefined steps with these snippets:
+
+@given(u'I have 10000€ in my current acount')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given I have 10000€ in my current acount')
+
+@given(u'I have 300€ in my saving accout')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given I have 300€ in my saving accout')
+
+@when(u'I transfer 200€ from current to saving')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I transfer 200€ from current to saving')
+
+@then(u'I should have 9800€ in my current acount')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then I should have 9800€ in my current acount')
+
+@then(u'I should have 500€ in my saving acount')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then I should have 500€ in my saving acount')
+
+                    </code></pre>
+                </section>
+                 
+                <section>
+                    <h4>Funciona</h4>
+                    <p>Incluso nos sugiere unos "esqueletos" de
+                    funiones para nosotros implemtar los test</p>
 
                     <p><a href="#/after-install-behave" target="_blank"> ◀ </a></p>
                 </section>
 
+                <section id="simple_test">
+                    <h4>Test simple</h4>
 
+                    <ul>
+                        <li>Veamos una primera implmentación
+                        </li>
+
+                        <li>Como no tenemos realmente codigo que probar,
+                        es una simulación</li>
+
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Given...</h4>
+                    <pre><code>
+#!/usr/bin/env python
+
+from behave import *
+
+@given("I have 10000€ in my current acount")
+def step_impl(context):
+    context.current_account = 10000
+
+
+@given("I have 300€ in my saving accout")
+def step_impl(context):
+    context.savings_account = 300                    
+
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>When...</h4>
+                    <pre><code>
+@when("I transfer 200€ from current to saving")
+def step_impl(context):
+    context.savings_account += 200
+    context.current_account -= 200                    
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>Then...</h4>
+                    <pre><code>
+@then("I should have 9800€ in my current acount")
+def step_impl(context):
+    assert context.current_account == 9800
+
+@then("I should have 500€ in my saving acount")
+def step_impl(context):
+    assert context.savings_account == 500                    
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>Ejecutamos Behave</h4>
+                    <pre><code>
+Feature: Transfer between accounts # features_002/transfer-between-accounts.feature:1
+
+  Scenario: Add savings                           # features_002/transfer-between-accounts.feature:3
+    Given I have 10000€ in my current acount      # features_002/steps/financial.py:5 0.000s
+    And I have 300€ in my saving accout           # features_002/steps/financial.py:10 0.000s
+    When I transfer 200€ from current to saving   # features_002/steps/financial.py:15 0.000s
+    Then I should have 9800€ in my current acount # features_002/steps/financial.py:21 0.000s
+    And I should have 500€ in my saving acount    # features_002/steps/financial.py:25 0.000s
+
+1 feature passed, 0 failed, 0 skipped
+1 scenario passed, 0 failed, 0 skipped
+5 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.000s
+                    
+                    </code></pre>
+                </section>
+
+                <section>
+                    <a href="/#after_simple_test">Up poco más de teoría</a>
+                </section>
+
+                <section id="param_test">
+                    <h4>Pasos parametrizables</h4>
+                    <ul>
+                        <li>Podemos parsear las cadena de texto de los
+                            ejemplos y extraer informacion para los test
+                        </li>
+                        <li>Por defecto se usa una libreria llamada
+                        <a href="https://pypi.org/project/parse/">parse</a>, que
+                        se define como <i>parse() is the opposite of
+                            format()</i></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p>cambiar la definion del primer paso de</p>
+                    <pre><code>
+@given("I have 10000€ in my current acount")
+def step_impl(context):
+    context.current_account = 10000                    
+                    </code></pre>
+                    <p>A</a></p>
+                    <pre><code>
+@given("I have {amount}€ in my current acount")
+def step_impl(context, amount):
+    context.current_account = int(amount)
+                    </code></pre>
+
+                </section>
 
             </section>
 

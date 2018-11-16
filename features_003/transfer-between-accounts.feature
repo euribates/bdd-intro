@@ -1,6 +1,6 @@
 Feature: Transfer between accounts
 
-  Scenario: Add savings
+Scenario: Add savings
 
     Given I have 10000€ in my current acount
     And I have 300€ in my saving accout
