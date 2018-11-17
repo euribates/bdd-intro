@@ -26,12 +26,17 @@
 			<div class="slides">
 				
                 <section>
-                    <h3>Uno introducción a BDD</h3>
+                    <h2>Introducción a BDD</h2>
                     <h5>Behavior Driven Development</h5>
                 </section>
 
 
                 <section>
+
+                    <section>
+                        <h4>Presentación</h4>
+                        <img src="covers/namor-50-who-am-i.png" alt="Who am I">
+                    </section>
 
                     <section>
                         <h4><code>whoami</code></h4>
@@ -46,9 +51,7 @@
                     </section>
     
                     <section>
-                        <h4><code>banner</code></h4>
-
-                        <h3>We are hiring</h3>
+                        <h5>We are hiring</h5>
 
                         <p>Más info es:</p>
                         <p><code><a href="https://octopuslabs.com/careers">
@@ -58,30 +61,34 @@
                             joke 3
                         </section>
 
+                    <section>
+                        <h5>Como se estructura esta charla</h5>
+                        <ul>
+                            <li class="fragment">Presentación (Terminada)</li>
+                            <li class="fragment">Teoria</li>
+                            <li class="fragment">Ejemplo práctico</li>
+                            <li class="fragment">Librerías, herramientas,
+                                recomendaciones...</li>
+                        </ul>
+                            <aside class="notes">
+                            Para hacer la charla más amena, saltaremos
+                            de la parte teórica a la práctica y 
+                            vuelta.
+                            </aside>
+                    </section>
+
                 </section>
 
 
-				<section>
-                    <h4><code>tree</code></h4>
-                    <h5>Como se estructura esta charla</h5>
-                    <p>Se divide en tres partes:</p>
-                    <ul>
-                        <li class="fragment">Teoria</li>
-                        <li class="fragment">Ejemplo práctico</li>
-                        <li class="fragment">Librerías, herramientas,
-                            recomendaciones...</li>
-                    </ul>
-                        <aside class="notes">
-                           Para hacer la charla más amena, saltaremos
-                           de la parte teórica a la práctica y 
-                           vuelta.
-                        </section>
-                </section>
 
             <section>
 
                 <section>
-                    <h5><code>man</code></h5>
+                    <h4>Teoría</h4>
+                    <img src="covers/theory.png" alt="Theory">
+                </section>
+
+                <section>
                     <h4>Qué es BDD</h4>
                     <p>Según wikipedia:</p>
                     <cite><small>
@@ -247,6 +254,22 @@
                 </section>
 
                 <section>
+                    <h4>And y But</h4>
+                    <p><b>And </b>y <b>But </b>son solo versiones alternativa de
+                    Given y Then, para aproximarnos al lenguaje natural. Asi,
+                    en vez de escribir:</p>
+                    <pre><code>
+Given I have 10000€ in my current acount
+Given I have 300€ in my saving accout
+                    </code> </pre>
+                    <p>Podemos escribir:</p>
+                    <pre><code>
+Given I have 10000€ in my current acount
+And I have 300€ in my saving accout
+                    </code> </pre>
+                </section>
+
+                <section>
                     <h4>Volvamos a la parte práctica</h4>
                     <h5>Implementemos los test</h5>
                         <p><a href="/#simple_test">Ejemplo</a></p>
@@ -258,7 +281,7 @@
 
                     <ul>
                         <li>El nombre de la funcion a la hora de definir los
-                        steps o pasos <b>no</b> es importante</li>
+                        steps o pasos <b>no es importante</b></li>
                         <li>Behave decide que funciones llamar y cuando
                         en base al texto del decorador</li>
                         <li>La idea es que los steps sean reutilizables</li>
@@ -266,9 +289,19 @@
                 </section>
 
                 <section>
+                    <h4>Request</h4>
+                    <p>Todos los pasos tienen un parámetro común
+                    <code>request</code>, que se puede usar para:
+                    <ul>
+                        <li>Compartir datos</li>
+                        <li>Se pueden añadir datos en los tres niveles</li>
+                    </ul></p>
+                </section>
+
+                <section>
                     <h4>Captura de parámetros</h4>
                     <ul>
-                        <li>Para eso, una caracteristica importante
+                        <li>Una caracteristica importante
                         es que podemos hacer los pasos parametrizables,
                         y capturar del texto datos para el test.</li>
                     </ul>
@@ -294,7 +327,8 @@
 
             <section>
                 <section>
-                    <h4>Parte práctica</h4>
+                    <h4>Práctica</h4>
+                    <img src="covers/practice.png" alt="Practice">
                 </section>
 
                 <section>
@@ -435,14 +469,14 @@ def step_impl(context):
                 </section>
 
                 <section id="simple_test">
-                    <h4>Test simple</h4>
+                    <h4>A Simple Test</h4>
 
                     <ul>
-                        <li>Veamos una primera implmentación
+                        <li>Let's see a first implementation
                         </li>
 
-                        <li>Como no tenemos realmente codigo que probar,
-                        es una simulación</li>
+                        <li>Given thath we have no real code to test
+                            for now, use a simulation</li>
 
                     </ul>
                 </section>
@@ -490,7 +524,7 @@ def step_impl(context):
                 </section>
 
                 <section>
-                    <h4>Ejecutamos Behave</h4>
+                    <h4>Execute Behave</h4>
                     <pre><code>
 Feature: Transfer between accounts # features_002/transfer-between-accounts.feature:1
 
@@ -510,36 +544,270 @@ Took 0m0.000s
                 </section>
 
                 <section>
-                    <a href="/#after_simple_test">Up poco más de teoría</a>
+                    <a href="/#after_simple_test">A bit more Theory</a>
                 </section>
 
                 <section id="param_test">
-                    <h4>Pasos parametrizables</h4>
+                    <h4>Parametrizable steps</h4>
                     <ul>
-                        <li>Podemos parsear las cadena de texto de los
-                            ejemplos y extraer informacion para los test
-                        </li>
-                        <li>Por defecto se usa una libreria llamada
-                        <a href="https://pypi.org/project/parse/">parse</a>, que
-                        se define como <i>parse() is the opposite of
+                        <li>We can parse the example text strings 
+                            and get information for the steps </li>
+                        <li>The library <a href="https://pypi.org/project/parse/">parse</a>
+                            is used by default</li>
+                        <li>parse defines itself as <i>the opposite of
                             format()</i></li>
                     </ul>
                 </section>
 
                 <section>
-                    <p>cambiar la definion del primer paso de</p>
+                    <p>Change definition of first step from:</p>
                     <pre><code>
 @given("I have 10000€ in my current acount")
 def step_impl(context):
     context.current_account = 10000                    
                     </code></pre>
-                    <p>A</a></p>
+                    <p>To:</a></p>
                     <pre><code>
 @given("I have {amount}€ in my current acount")
 def step_impl(context, amount):
     context.current_account = int(amount)
                     </code></pre>
+                </section>
 
+                <section>
+                    <pre><code>
+Feature: Transfer between accounts # features_003/transfer-between-accounts.feature:1
+
+  Scenario: Add savings                           # features_003/transfer-between-accounts.feature:3
+    Given I have 10000€ in my current acount      # features_003/steps/financial.py:5 0.000s
+    And I have 300€ in my saving accout           # features_003/steps/financial.py:10 0.000s
+    When I transfer 200€ from current to saving   # features_003/steps/financial.py:15 0.000s
+    Then I should have 9800€ in my current acount # features_003/steps/financial.py:21 0.000s
+    And I should have 500€ in my saving acount    # features_003/steps/financial.py:25 0.000s
+
+1 feature passed, 0 failed, 0 skipped
+1 scenario passed, 0 failed, 0 skipped
+5 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.001s                    
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>We can even forget
+                        <br><small>about the integer cast</small></h4>
+                    <pre><code>
+@given("I have {amount:d}€ in my current acount")
+def step_impl(context, amount):
+    context.current_account = amount
+                    </code></pre>
+
+                </section>
+
+                <section>
+                    <h4>Behave have alternative parsers</h4>
+                    <ul>
+                        <li><b>parse</b> is used by default</li>
+                        <li><b>cfparse</b> let us work with cardinality</li>
+                        <li><b>re</b> to use regular expressions</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Table examples</h3>
+                    <p>We can add data to the steps in a tabular form</p>
+                    <pre><code>
+Feature: Pokemon search 
+
+  Scenario: Find the weakest
+
+    Given I have this pokemons
+        |name     | attack  | defense |
+        |psyduck  | 20      | 60      |
+        |torchic  | 20      | 60      |
+        |spinda   | 10      | 80      |
+        |lillipup | 10      | 50      |
+    When I search for the one with less defense
+    Then I should get lillipup
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>We can process this table
+                        <br><small>in the step code</small></h4>
+                    <pre><code>
+@given('I have this pokemons')
+def step_impl(context):
+    for row in context.table:
+        pokemon = Pokemon(
+            row['name'],
+            attack=row['attack'],
+            defense=row['defense'],
+            )
+        setattr(context, row['name'], pokemon)
+                    </code></pre>
+
+                        <aside class="notes">
+                           <p><code>table</code> attribute of the context</p> 
+                           <p>We can attach a bunch of text to the example
+                           also, use <code>text</code> attribute of the context</p> 
+                        </aside>
+                </section>
+
+                <section>
+                    <h4>We can have shared preconditions
+                    <br><small>for all the steps</small>
+                    </h4>
+                    <pre><code>
+ Feature: Transfer between accounts
+
+  Background:
+        
+    Given I have this pokemons
+        |name     | attack  | defense |
+        |psyduck  | 20      | 60      |
+        |torchic  | 20      | 60      |
+        |spinda   | 10      | 80      |
+        |lillipup | 10      | 50      |
+
+  Scenario: Search for the weakest 
+    When I search for the one with less defense
+    Then I should get lillipup
+
+  Scenario: Search for the stronger
+    When I search for the one with more attack
+    Then I should get spinda                   
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>tags</h4>
+                    <ul>
+                        <li>Selection of scenarios or features</li>
+                        <li>Can select for one or several tags</li>
+                        <li>Can execute the ones <b>not</b> having one or more tags</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Feature with tags</h4>
+                    <p>Asuming this feature and sample data</p>
+                    <pre><code>
+ Feature: Search pokemons
+
+  Background:
+        
+    Given I have this pokemons
+        |name     | attack  | defense |
+        |psyduck  | 20      | 60      |
+        |torchic  | 20      | 60      |
+        |trapinch | 20      | 60      |
+        |spinda   | 10      | 80      |
+        |lillipup | 10      | 50      |
+
+                   
+                    </code></pre>
+
+
+
+                </section>
+
+                <section>
+                    <h4>And this steps</h4>
+                    <pre><code>
+   @fight
+  Scenario: Search for the weakest 
+    When I search for the one with less defense
+    Then I should get lillipup
+
+  @fight
+  Scenario: Search for the stronger
+    When I search for the one with more attack
+    Then I should get spinda
+
+  Scenario: Search for name 
+    When I search for the letter t
+    Then I should get torchic
+     And I should get trapinch                   
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>Executing
+                        <br><small>just the fight scenarios</small></h4>
+                    <pre><code>
+                    behave features_006 --tags=fight
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>Executinga all the scenarios
+                        <br><small>but the fight ones</small></h4>
+                    <pre><code>
+                    behave features_006 --tags=-fight
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h4>Works In Progress</h4>
+                    <ul>
+                        <li>run with <code>-w</code> flag</li>
+                        <li>turns off stdout capture</li>
+                        <li>turns off logging capture</li>
+                        <li>turns off pretty output</li>
+                        <li>only runs scenarios tagged with “@wip”</li>
+                        <li>stops at the first error</li> 
+                    </ul>
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                <h4>To be handle with care</h4>
+                <img src="covers/damage.png" alt="To be handle with care">
+                </section>
+
+                <section>
+                    <h5>Recomendations</h5>
+                    <ul>
+                        <li>Don't mix features</li>
+                        <li>One scenario to test just one case</li>
+                        <li>it's code, store it in the repo</li>
+                        <li>High level descriptions: Do not use technology terms</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h5>Dangers</h5>
+                    <ul>
+                        <li>Make the system too complex</li>
+                        <li>Get used to having some tests never passsing</li>
+                        <li>Test the easy ones. You must go for the ones
+                        that teaches you the more</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h5>Rule Number 1 on analisys club</h5>
+                    <ul>
+                        <li>Don't tell me your solution</li>
+                        <li>Instead, tell me your problem</li>
+                    </ul>
+                    <p><small>(Rule number 2 is Everybody lies, if you are
+                            interested)</small></p>
+                </section>
+
+                <section>
+                    <h5>Tools and options</h5>
+                    <ul>
+                        <li>Ruby - Cucumber</li>
+                        <li>Javascript - Cucumber.js</li>
+                        <li>.Net - xBehave </li>
+                        <li>Java - JBehave</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>THANK YOU!</h1>
                 </section>
 
             </section>
