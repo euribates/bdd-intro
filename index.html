@@ -6,8 +6,8 @@
 
 		<title>Introducción a BDD (Behevior-Driven Development)</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="lib/css/reveal.css">
+		<link rel="stylesheet" href="lib/css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -17,7 +17,9 @@
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			link.href = 'lib/css/print/' + (
+                window.location.search.match(/print-pdf/gi)?'pdf.css':'paper.css'
+                );
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 	</head>
@@ -26,7 +28,7 @@
 			<div class="slides">
 				
                 <section>
-                    <h2>Introducción a BDD</h2>
+                    <h2>Introduction to BDD</h2>
                     <h5>Behavior Driven Development</h5>
                 </section>
 
@@ -34,7 +36,6 @@
                 <section>
 
                     <section>
-                        <h4>Presentación</h4>
                         <img src="covers/namor-50-who-am-i.png" alt="Who am I">
                     </section>
 
@@ -53,7 +54,7 @@
                     <section>
                         <h5>We are hiring</h5>
 
-                        <p>Más info es:</p>
+                        <p>More info at:</p>
                         <p><code><a href="https://octopuslabs.com/careers">
                                 https://octopuslabs.com/careers
                             </a></code></p>
@@ -62,18 +63,17 @@
                         </section>
 
                     <section>
-                        <h5>Como se estructura esta charla</h5>
+                        <h5>How is this talk structured?</h5>
                         <ul>
-                            <li class="fragment">Presentación (Terminada)</li>
-                            <li class="fragment">Teoria</li>
-                            <li class="fragment">Ejemplo práctico</li>
-                            <li class="fragment">Librerías, herramientas,
-                                recomendaciones...</li>
+                            <li class="fragment">Presentation (Finished!)</li>
+                            <li class="fragment">Teory</li>
+                            <li class="fragment">Practice</li>
+                            <li class="fragment">Libraries, tools, recomendations...</li>
                         </ul>
                             <aside class="notes">
-                            Para hacer la charla más amena, saltaremos
-                            de la parte teórica a la práctica y 
-                            vuelta.
+                                for the purpose of clarity, we
+                                will jump from theory to practice
+                                and back (and forth) 
                             </aside>
                     </section>
 
@@ -89,8 +89,17 @@
                 </section>
 
                 <section>
-                    <h4>Qué es BDD</h4>
-                    <p>Según wikipedia:</p>
+                    <blockquote>
+                    In theory, there is no difference between theory and practice. In practice,
+                    there is.
+                    <br>--
+                    <br>Benjamin Brewster 
+                    </blockquote>
+                </section>
+
+                <section>
+                    <h4>What is BDD</h4>
+                    <p>As stated by wikipedia:</p>
                     <cite><small>
                         ... an extension of TDD that makes use of a simple, 
                         domain-specific scripting language structured like 
@@ -103,8 +112,8 @@
 
                 <section>
                     <h5><code>man</code></h5>
-                    <h4>Qué es BDD</h4>
-                    <p>Según wikipedia:</p>
+                    <h4>Waht is BDD</h4>
+                    <p>As stated by wikipedia:</p>
                     <cite><small><strike>
                         ... an extension of TDD that makes use of a simple, 
                         domain-specific scripting language structured like 
@@ -117,56 +126,51 @@
                 <section id="after_hello_bdd">
                     <h4>tldr</h4>
                     <ul>
-                        <li>Son tests. Igual que con TDD, usamos test para
-                            dirigir <b class="fragment highlight-green">el
-                            diseño</b></li>
-                        <li>Suelen ser test de <b class="fragment highlight-green">
-                            más alto nivel</b> que TDD</li>
-                        </li>Están escritos en un <b class="fragment highlight-green">lenguaje
-                            natural</b> (Español,
-                        Inglés...)</li>
+                        <li>They are tests. As in TDD, we use test to drive 
+                            <b class="fragment highlight-green">the
+                            design</b> of the software</li>
+                        <li>Usually, on a <b class="fragment highlight-green">higher level</b> than 
+                            TDD</li>
+                        </li>Written in a <b class="fragment highlight-green">natural lenguage
+                    </b>, like English</li>
                     </ul>
-                    <p><a href="#/hello_bdd">Ejemplo</a></p>
+                    <p><a href="#/hello_bdd">Example</a></p>
 
                 </section>
 
                 <section>
-                    <h4>Objetivo: Compartir conocimiento</h4>
-                    <p>El lenguaje natural:</p>
+                    <h4>Target: Share knowledge</h4>
+                    <p>A natural lenguaje:</p>
                     <ul>
-                        <li>Lenguaje <b class="fragment highlight-green">común</b> entre todos</li>
-                        <li><b class="fragment highlight-green">Cualquiera</b>
-                            puede definir u opinar
-                            sobre un test</li>
-                        <li>Aclarar y <b class="fragment highlight-green">debatir
-                                sobre zonas típicamente
-                                conflictivas</b>: casos límite, excepciones...</li>
+                        <li>Is used <b class="fragment highlight-green">for all of us</b></li>
+                        <li><b class="fragment highlight-green">Everyone</b>
+                            can define, debate o improve a test</li>
+                        <li>Allow all the team to <b class="fragment highlight-green">discuss
+                                on tipically conflictive topics</b>: edge cases, exceptions...</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h4>Especificaciones ejecutables</h4>
-                    <p>Si usamos estos tests como las especificaciones
-                    que debe cumplir nuestro software, tenemos especificaciones
-                    <b class="fragment highlight-green">
-                        escritas en lenguaje natural, pero ejecutables</b>.
+                    <h4>Executable Specifications</h4>
+                    <p>Using this test as specifications for our software, we get
+                    specifications <b class="fragment highlight-green">
+                        written on a plain english, but executables</b>.
                 </section>
 
                 <section>
-                    <h4>¿Cómo que ejecutables?</h4>
-                    <p>Vamos a convertir esta especificacion natural en un 
+                    <h4>How can you "execute" english?</h4>
+                    <p>Lets transform a plain english specification in a  
                     test</p>
-                    <p><a href="#/install-behave">Ejemplo</a></p>
+                    <p><a href="#/install-behave">Example</a></p>
 
                 </section>
 
                 <section id="after-install-behave">
-                    <h3>Tenemos test</h3>
+                    <h3>Now we have tests!</h3>
                     <ul>
-                    <li>Claro, ahora hay que implementarlos, no hay magia</li>
+                    <li>But, obviously, we need to implement the code, this is not black magic.</li>
 
-                    <li>Pero antes, veamos un poco más acerca de estos
-                    ficheros y su organización</li>
+                    <li>Before that, lets see a few details on torchics files and the organization.</li>
                     </ul>
 
                 </section>
@@ -255,14 +259,14 @@
 
                 <section>
                     <h4>And y But</h4>
-                    <p><b>And </b>y <b>But </b>son solo versiones alternativa de
-                    Given y Then, para aproximarnos al lenguaje natural. Asi,
-                    en vez de escribir:</p>
+                    <p><b>And </b>y <b>But </b> are alternative versions of
+                    Given and Then, just to get a better feeling of proper english.
+                    So, instead of writing:</p>
                     <pre><code>
 Given I have 10000€ in my current acount
 Given I have 300€ in my saving accout
                     </code> </pre>
-                    <p>Podemos escribir:</p>
+                    <p>Wa can write:</p>
                     <pre><code>
 Given I have 10000€ in my current acount
 And I have 300€ in my saving accout
@@ -327,12 +331,12 @@ And I have 300€ in my saving accout
 
             <section>
                 <section>
-                    <h4>Práctica</h4>
+                    <h4>Practice</h4>
                     <img src="covers/practice.png" alt="Practice">
                 </section>
 
                 <section>
-                    <h4>Un ejemplo de fichero .feature</h4>
+                    <h4>A feature file example</h4>
                 </section>
 
                 <section id="hello_bdd">
@@ -368,21 +372,21 @@ And I have 300€ in my saving accout
                 </section>
 
                 <section>
-                    <h4>Para Nuestro primer test BDD
-                    <small>vamos a necesitar...</small></h4>
+                    <h4>For our first BDD test...
+                    <small>We are going to need ...</small></h4>
 
                     <ul>
                         
-                        <li>Un directorio <code><b>features</b></code></li>
+                        <li>A <code><b>features</b></code> directory</li>
                         
-                        <li>dentro, un fichero llamado
+                        <li>Inside, a file named
                             <code><b>transfer-between-accounts.feature</b></code>*
                             </li>
                     
-                            <li>y un directorio <code><b>steps</b></code>.</li>
+                            <li>and a directoriy named <code><b>steps</b></code>.</li>
                            
                     </ul>
-                    <p><small>* con el contenido del ejemplo anterior</small></p>
+                    <p><small>* with the content show in the previous example</small></p>
 
 
                 </section>
@@ -398,10 +402,10 @@ vim features/transfer-between-accounts.feature
 
                 <section>
 
-                    <h4>Ya hemos escrito el primer test<br>
-                        <small>ya es ejecutable</small></h4>
+                    <h4>First test written!<br>
+                        <small>And it is executable!</small></h4>
                    
-                    <p>Ejecutamos, simplemente:</p>
+                    <p>To execute it, just type on the command line:</p>
 
                     <pre><code>
     behave
@@ -462,8 +466,7 @@ def step_impl(context):
                  
                 <section>
                     <h4>Funciona</h4>
-                    <p>Incluso nos sugiere unos "esqueletos" de
-                    funiones para nosotros implemtar los test</p>
+                    <p>It gives us a scheleton functions for us to implmente the tests </p>
 
                     <p><a href="#/after-install-behave" target="_blank"> ◀ </a></p>
                 </section>
@@ -816,7 +819,7 @@ def step_impl(context):
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+		<script src="lib/js/reveal.js"></script>
 
 		<script>
 			// More info about config & dependencies:
