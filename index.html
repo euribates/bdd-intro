@@ -168,9 +168,9 @@
                 <section id="after-install-behave">
                     <h3>Now we have tests!</h3>
                     <ul>
-                    <li>But, obviously, we need to implement the code, this is not black magic.</li>
+                    <li>But, obviously, we need to implement the code. No black magic</li>
 
-                    <li>Before that, lets see a few details on torchics files and the organization.</li>
+                    <li>Before that, lets review a few details about files and organization.</li>
                     </ul>
 
                 </section>
@@ -178,16 +178,17 @@
                 <section>
                     <h4>Gherkin</h4>
                    
-                    <p> El formato que usamos para las especificaciones se
-                    denomina <b>Gherkin</b>.  </p>
+                    <p>The format used in this specification is called <b>Gherkin</b></p>
                     
-                    <p>Hay una serie de palabras reservadas que tienen un
-                    significado especial: <code><b>Feature</b></code>,
-                    <code><b>Scenario</b></code>, <code><b>Given</b></code>,
-                    <code><b>When</b></code> y <code><b>Then</b></code>.</p>
+                    <p>There are just a few words that have a special meaning:
+                    <code><b>Feature</b></code>,
+                    <code><b>Scenario</b></code>,
+                    <code><b>Given</b></code>,
+                    <code><b>When</b></code> y
+                    <code><b>Then</b></code>.</p>
 
-                    <p>(y <code><b>And</b></code>
-                    y <code><b>But</b></code>) </p>
+                    <p>(Also <code><b>And</b></code>,
+                    <code><b>But</b></code>)</p>
 
                 </section>
 
@@ -196,16 +197,16 @@
 
                     <ul>
                         
-                    <li>Cada <i>feature</i> o capacidad que nos de el sistema
-                        deberia tener su propio fichero
-                        <code>.feature</code>.</li>
+                    <li>Every <i>feature</i> is a capacity of our product. Each feature
+                        must have its own <code>.feature</code> file</li>
                     
-                    <li>La palabra clave Feature ira al pricincio y sirve para
-                        describir en una sola linea que parte del sistema
-                        estamos probando.</li>
+                    <li>The keyword <b>Feature</b> must go at the begining, and
+                        gives us the opportunity to descrive the feature in one line
+                        </li>
 
-                    <li>Cualquier texto entre Feature y el primer escenario
-                        sirve para describirlo de forma mas completa.</li>
+                    <li>The rest of text between the feature line and the first
+                        scenario can be used to describe the feature with more
+                        detail</li>
                     
                     </ul> </section>
 
@@ -214,16 +215,15 @@
 
                     <ul>
 
-                        <li> Normalmente una funcionalidad del sistema tiene
-                            más de un escenario, porque nos interesa probar el
-                            sistema en diferentes condiciones, con diferentees
-                        entradas, etc...</li>   
+                        <li> Usually, a feature has more than one scenario, because
+                            we are interested on testing diferent aspects: changing
+                            conditiones, edge cases, different inputs, etc...</li>   
 
-                        <li> Cada escenario se define con la palabra clave
+                        <li> Every diferent case is defined with the keyboard 
                             <b>Scenario</b></li>
 
-                        <li> Consiste en un ejemplo completo de uso de la
-                            feature </li>
+                        <li> As a rule, every scenario is a complete and concrete example 
+                            of a feature</li>
 
                     </ul>
                 </section>
@@ -231,29 +231,28 @@
                 <section>
                     <h4>Given</h4>
                     <ul>
-                        <li><b>Given</b> pone el sistema en un estado
-                            conocido y controlado antes de empezar a
-                            interactuar con él</li>
-                        <li>No debería haber interacciones de usuario aquí</li>
+                        <li><b>Given</b> put our system in a known and controled 
+                            state, before the first intereaction.</li>
+                        <li>(No user interactions if this part)</li>
                     </ul>
                 </section>
 
                 <section>
                     <h4>When</h4>
                     <ul>
-                        <li><b>When</b> Llevamos a cabo la accion que
-                            el usuario o un sistema externo quiere ejecutar.
-                            Esto deberá provocar algún cambio en el
-                            sistema</li>
-                        <li>O no</li>
+                        <li><b>When</b> This is where we describe the actions
+                            the user or external system wants to do. This
+                            must yield some changes in the system.
+                            </li>
+                        <li>Or maybe not</li>
                     </ul>
                 </section>
 
                 <section>
                     <h4>Then</h4>
                     <ul>
-                        <li><b>Then</b> Comprobamos que la salida sea
-                        la esperada</li>
+                        <li><b>Then</b> This is where we check that the outcomes of our
+                            system are the expected</li>
                     </ul>
                 </section>
 
@@ -274,42 +273,43 @@ And I have 300€ in my saving accout
                 </section>
 
                 <section>
-                    <h4>Volvamos a la parte práctica</h4>
-                    <h5>Implementemos los test</h5>
-                        <p><a href="/#simple_test">Ejemplo</a></p>
+                    <h4>Go back to practice</h4>
+                    <h5>Lets implement the test</h5>
+                        <p><a href="/#simple_test">Example</a></p>
                 </section>
 
                 <section id="after_simple_test">
-                    <h4>Alguna cosas interesantes<br>
-                    <small>de los steps</small></h4>
+                    <h4>A few interesting details<br>
+                    <small>on steps</small></h4>
 
                     <ul>
-                        <li>El nombre de la funcion a la hora de definir los
-                        steps o pasos <b>no es importante</b></li>
-                        <li>Behave decide que funciones llamar y cuando
-                        en base al texto del decorador</li>
-                        <li>La idea es que los steps sean reutilizables</li>
+                        <li>The name of the function used to implemente the steps 
+                        <b class="fragment highlight-green">it's not important!</b></li>
+                        <li>Behave decide what funciones to call, and when, based
+                            only in the text of decorator</li>
+                        <li>Main idea is having <b class="fragment highlight-green">reusable steps</li>
                     </ul>
                 </section>
 
                 <section>
                     <h4>Request</h4>
-                    <p>Todos los pasos tienen un parámetro común
-                    <code>request</code>, que se puede usar para:
                     <ul>
-                        <li>Compartir datos</li>
-                        <li>Se pueden añadir datos en los tres niveles</li>
-                    </ul></p>
+                        <li>Every step has a common first parameter called
+                        <code>request</code>, that could be used for
+                        Sharing data</li>
+                        <li>This data can be shared at a feaure level or a scenario level</li>
+                    </ul>
                 </section>
 
                 <section>
-                    <h4>Captura de parámetros</h4>
+                    <h4>Parameter Capture</h4>
                     <ul>
-                        <li>Una caracteristica importante
-                        es que podemos hacer los pasos parametrizables,
-                        y capturar del texto datos para el test.</li>
+                        <li>One interesting ability is to "capture" some
+                            part of the text of the step</li>
+                        <li> This allow us to have parametrizable, and hence,
+                            more reusable steps</li>
                     </ul>
-                        <p><a href="/#param_test">Veámoslo con otro ejemplo</a></p>
+                        <p><a href="/#param_test">Lets see this with another example</a></p>
 
                 </section>
 
