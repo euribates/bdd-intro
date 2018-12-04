@@ -159,7 +159,7 @@
 
                 <section>
                     <h4>How can you "execute" english?</h4>
-                    <p>Lets transform a plain english specification in a  
+                    <p>Transform a plain english specification in a  
                     test</p>
                     <p><a href="#/install-behave">Example</a></p>
 
@@ -314,16 +314,16 @@ And I have 300€ in my saving accout
                 </section>
 
                 <section>
-                    <h4>Diferencias con TDD</h4>
+                    <h4>Differences with TDD</h4>
                     <ul>
-                        <li>El enfasis no es en el código, sino en 
-                        la funcionalidad proporcionada</li>
+                        <li>Emphasis is not in the code, but in the
+                            functionality</li>
 
-                        <li>Especificación en lenguajes natural</li>
+                        <li>Specification is written in natural
+                            language (i.e. plain english)</li>
 
-                        <li>Común a todo el equipo: Desarrolladores,
-                        testers, Q/A, product owners, analistas de
-                        negocio...</li>
+                        <li>Spoken by all the members of the team: Developers
+                        testers, Q/A, product owners, skateholders, users...</li>
                     </ul>
                 </section>
 
@@ -357,11 +357,12 @@ And I have 300€ in my saving accout
                 </section>
 
                 <section id="install-behave">
-                    <h4>Instalemos behave</h4>
+                    <h4>Install Behave</h4>
 
-                    <p><small>Behave es una implementacion de herramienta BDD
-                        escrita en Python, veremos otras opciones para otros
-                        lenguajes al final de la charla</small></p>
+                    <p><small><b>Behave</b> is a BDD tool written in Python.
+                        We will see other options for other languages
+                        at the end of the talk
+                    </small></p>
 
                 </section>
 
@@ -380,13 +381,13 @@ And I have 300€ in my saving accout
                         <li>A <code><b>features</b></code> directory</li>
                         
                         <li>Inside, a file named
-                            <code><b>transfer-between-accounts.feature</b></code>*
+                            <code><b>transfer-between-accounts.feature</b></code><sup>*</sup>
                             </li>
                     
                             <li>and a directoriy named <code><b>steps</b></code>.</li>
                            
                     </ul>
-                    <p><small>* with the content show in the previous example</small></p>
+                    <p><small><sup>*</sup> with the content show in the previous example</small></p>
 
 
                 </section>
@@ -738,7 +739,7 @@ def step_impl(context):
                     <h4>Executing
                         <br><small>just the fight scenarios</small></h4>
                     <pre><code>
-                    behave features_006 --tags=fight
+    behave features_006 --tags=fight
                     </code></pre>
                 </section>
 
@@ -746,7 +747,7 @@ def step_impl(context):
                     <h4>Executinga all the scenarios
                         <br><small>but the fight ones</small></h4>
                     <pre><code>
-                    behave features_006 --tags=-fight
+    behave features_006 --tags=-fight
                     </code></pre>
                 </section>
 
