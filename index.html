@@ -25,12 +25,14 @@
 	</head>
 	<body>
 		<div class="reveal">
+
 			<div class="slides">
 				
                 <section>
                     <h2>Introduction to BDD</h2>
                     <h5>Behavior Driven Development</h5>
                 </section>
+
 
 
                 <section>
@@ -60,15 +62,15 @@
                             </a></code></p>
                         <aside class="notes">
                             joke 3
-                        </section>
+                    </section>
 
                     <section>
                         <h5>How is this talk structured?</h5>
                         <ul>
-                            <li class="fragment">Presentation (Finished!)</li>
-                            <li class="fragment">Teory</li>
-                            <li class="fragment">Practice</li>
-                            <li class="fragment">Libraries, tools, recomendations...</li>
+                            <li>Presentation (Finished!)</li>
+                            <li>Teory</li>
+                            <li>Practice</li>
+                            <li>Libraries, tools, recomendations...</li>
                         </ul>
                             <aside class="notes">
                                 for the purpose of clarity, we
@@ -84,7 +86,7 @@
             <section>
 
                 <section>
-                    <h4>Teoría</h4>
+                    <h4>Theory</h4>
                     <img src="covers/theory.png" alt="Theory">
                 </section>
 
@@ -112,7 +114,7 @@
 
                 <section>
                     <h5><code>man</code></h5>
-                    <h4>Waht is BDD</h4>
+                    <h4>Wath is BDD</h4>
                     <p>As stated by wikipedia:</p>
                     <cite><small><strike>
                         ... an extension of TDD that makes use of a simple, 
@@ -208,7 +210,8 @@
                         scenario can be used to describe the feature with more
                         detail</li>
                     
-                    </ul> </section>
+                    </ul>
+                </section>
 
                 <section>
                     <h4>Scenario</h4>
@@ -259,13 +262,14 @@
                 <section>
                     <h4>And y But</h4>
                     <p><b>And </b>y <b>But </b> are alternative versions of
-                    Given and Then, just to get a better feeling of proper english.
-                    So, instead of writing:</p>
+                    Given and Then
+                    <br><small>just to get a better feeling of proper english.</small></p>
+                    <p>So, instead of writing:</p>
                     <pre><code>
 Given I have 10000€ in my current acount
 Given I have 300€ in my saving accout
                     </code> </pre>
-                    <p>Wa can write:</p>
+                    <p>We can write:</p>
                     <pre><code>
 Given I have 10000€ in my current acount
 And I have 300€ in my saving accout
@@ -279,15 +283,18 @@ And I have 300€ in my saving accout
                 </section>
 
                 <section id="after_simple_test">
-                    <h4>A few interesting details<br>
-                    <small>on steps</small></h4>
+                    <h4>A few interesting details
+                        <br><small>on steps</small></h4>
 
                     <ul>
                         <li>The name of the function used to implemente the steps 
                         <b class="fragment highlight-green">it's not important!</b></li>
+
                         <li>Behave decide what funciones to call, and when, based
                             only in the text of decorator</li>
-                        <li>Main idea is having <b class="fragment highlight-green">reusable steps</li>
+
+                        <li>Main idea is having <b class="fragment highlight-green">reusable
+                                steps</b></li>
                     </ul>
                 </section>
 
@@ -295,7 +302,7 @@ And I have 300€ in my saving accout
                     <h4>Request</h4>
                     <ul>
                         <li>Every step has a common first parameter called
-                        <code>request</code>, that could be used for
+                        <code class="fragment highlight-green">request</code>, that could be used for
                         Sharing data</li>
                         <li>This data can be shared at a feaure level or a scenario level</li>
                     </ul>
@@ -317,19 +324,22 @@ And I have 300€ in my saving accout
                     <h4>Differences with TDD</h4>
                     <ul>
                         <li>Emphasis is not in the code, but in the
-                            functionality</li>
+                            <b class="fragment highlight-green">functionality</b></li>
 
                         <li>Specification is written in natural
-                            language (i.e. plain english)</li>
+                            language (i.e. <b class="fragment highlight-green">english</b>)</li>
 
-                        <li>Spoken by all the members of the team: Developers
+                        <li>Spoken by <b class="fragment highlight-green">all the members</b>
+                            of the team: Developers
                         testers, Q/A, product owners, skateholders, users...</li>
                     </ul>
                 </section>
 
             </section>
 
+
             <section>
+
                 <section>
                     <h4>Practice</h4>
                     <img src="covers/practice.png" alt="Practice">
@@ -359,10 +369,12 @@ And I have 300€ in my saving accout
                 <section id="install-behave">
                     <h4>Install Behave</h4>
 
-                    <p><small><b>Behave</b> is a BDD tool written in Python.
-                        We will see other options for other languages
-                        at the end of the talk
-                    </small></p>
+                    <ul>
+                    <li><b>Behave</b> is a BDD tool written in Python</li>
+
+                    <li>We will see other options for other languages
+                        at the end of the talk </li>
+                    </ul>
 
                 </section>
 
@@ -374,17 +386,19 @@ And I have 300€ in my saving accout
 
                 <section>
                     <h4>For our first BDD test...
-                    <small>We are going to need ...</small></h4>
+                        <br><small>We are going to need ...</small></h4>
 
                     <ul>
                         
-                        <li>A <code><b>features</b></code> directory</li>
+                        <li>A <code class="fragment highlight-green"><b>features</b></code> directory</li>
                         
-                        <li>Inside, a file named
-                            <code><b>transfer-between-accounts.feature</b></code><sup>*</sup>
+                        <li>Inside:
+                            <ul>
+                                <li>a directory named <code class="fragment highlight-green"><b>steps</b></code>.</li>
+                                <li>And a file named with extension <code class="fragment highlight-green"><b>.feature</b></code><sup>*</sup>
                             </li>
+                            </ul>
                     
-                            <li>and a directoriy named <code><b>steps</b></code>.</li>
                            
                     </ul>
                     <p><small><sup>*</sup> with the content show in the previous example</small></p>
@@ -466,8 +480,12 @@ def step_impl(context):
                 </section>
                  
                 <section>
-                    <h4>Funciona</h4>
-                    <p>It gives us a scheleton functions for us to implmente the tests </p>
+
+                    <h4>IT WORKS!</h4>
+                    <img src="art/its-alive.webp">
+                    <p>And It even gives us a scheleton of the functions we need to implement to
+
+                    run the tests </p>
 
                     <p><a href="#/after-install-behave" target="_blank"> ◀ </a></p>
                 </section>
@@ -610,10 +628,23 @@ def step_impl(context, amount):
                 <section>
                     <h4>Behave have alternative parsers</h4>
                     <ul>
-                        <li><b>parse</b> is used by default</li>
-                        <li><b>cfparse</b> let us work with cardinality</li>
-                        <li><b>re</b> to use regular expressions</li>
+                        <li><b class="fragment highlight-green">parse</b> is used by default</li>
+                        <li><b class="fragment highlight-green">cfparse</b> let us work with cardinality</li>
+                        <li><b class="fragment highlight-green">re</b> to use regular expressions</li>
                     </ul>
+                </section>
+
+                <section>
+                    <h4>BUT before... </h4>
+                    <ul>
+                        <li>Lets forget all this financial stuff nobody cares for...</li>
+                        <li>and use more interesting examples...</li>
+                    </ul>
+                </section>
+
+                <section>
+                        <h4>Pokemon</h4>
+                    <p><img src="art/bulbasaur.png"></p>
                 </section>
 
                 <section>
@@ -686,9 +717,9 @@ def step_impl(context):
                 <section>
                     <h4>tags</h4>
                     <ul>
-                        <li>Selection of scenarios or features</li>
-                        <li>Can select for one or several tags</li>
-                        <li>Can execute the ones <b>not</b> having one or more tags</li>
+                        <li><b class="fragment highlight-green">Selection</b> of scenarios or features</li>
+                        <li>Can select for <b class="fragment highlight-green">one or several</b> tags</li>
+                        <li>Can execute the ones <b class="fragment highlight-green">not</b> having one or more tags</li>
                     </ul>
                 </section>
 
@@ -784,10 +815,13 @@ def step_impl(context):
                 <section>
                     <h5>Dangers</h5>
                     <ul>
-                        <li>Make the system too complex</li>
-                        <li>Get used to having some tests never passsing</li>
-                        <li>Test the easy ones. You must go for the ones
-                        that teaches you the more</li>
+                        <li>Don't make the system <b class="fragment highlight-green">too
+                                complex</b></li>
+                        <li>Don't get used to  <b class="fragment highlight-green">having 
+                                some tests never passsing</b></li>
+                        <li>Don't start testing the easy ones. You must go for the ones
+                            that <b class="fragment highlight-green">teaches you the 
+                                most</b></li>
                     </ul>
                 </section>
 
@@ -810,14 +844,21 @@ def step_impl(context):
                         <li>Java - JBehave</li>
                     </ul>
                 </section>
-                <section>
-                    <h1>THANK YOU!</h1>
-                </section>
 
             </section>
 
-			</div>
-		</div>
+
+            <section>
+                <h1>THANK YOU!</h1>
+            </section>
+
+
+        </section>
+
+
+
+        </div>
+    </div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="lib/js/reveal.js"></script>
